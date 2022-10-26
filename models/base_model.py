@@ -19,8 +19,8 @@ class BaseModel():
         created_at(DT): instance creation date time
         updated_at(DT): instance change date time
         '''
-        if kwags:
-            for key, value in kwags.items():
+        if kwargs:
+            for key, value in kwargs.items():
                 if key != '__class__':
                     self.key = value
         else:
