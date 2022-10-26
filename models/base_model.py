@@ -36,4 +36,14 @@ class BaseModel():
 	'''
 	self.updated_at = datetime.isoformat(datetime.today())
 
-
+    def to_dict(self):
+        """A dictionary containing all keys/values of __dict__
+        of the instance
+        Return:
+            dictionary (dict): Dictionary object that contains __dict__
+        """
+        the_dict = self.__dict__.copy()
+        the_dict["created_at"] = self.created_at
+        the_dict["updated_at"] = self.updated_at
+        the_dict["__class__"] = self.__class__.__name__
+        return the_dict
