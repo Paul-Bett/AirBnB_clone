@@ -23,6 +23,10 @@ class BaseModel():
             for key, value in kwargs.items():
                 if key != '__class__':
                     self.key = value
+                if key in ['created_at', 'updated_at']:
+                    self.__dict__[key] = datetime.isoformat(datetime.today())
+                elif key == 'id':
+                    self.id = value
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.isoformat(datetime.today())
