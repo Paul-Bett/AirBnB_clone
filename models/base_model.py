@@ -25,5 +25,12 @@ class BaseModel():
     def __str__(self):
  	''' Print informal representation of an instance
 	'''
-	pass
 	
+	
+
+    def save(self):
+	''' update attribute updated at with current DT
+	'''
+	self.updated_at = datetime.isoformat(datetime.today())
+
+
