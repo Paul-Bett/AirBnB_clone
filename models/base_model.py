@@ -19,10 +19,12 @@ class BaseModel():
         created_at(DT): instance creation date time
         updated_at(DT): instance change date time
         '''
-        if kwags:
-            for key, value in kwags.items():
-                if key != '__class__':
-                    self.key = value
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in ['created_at', 'updated_at']:
+                    self.__dict__[key] = datetime.isoformat(datetime.today())
+                elif key == 'id':
+                    self.id = value
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.isoformat(datetime.today())
