@@ -13,29 +13,29 @@ class BaseModel():
     '''
 
     def __init__(self):
-	''' Initialization of BaseModel
+        ''' Initialization of BaseModel
         public instance attributes: 
-	id(str): uniqued identifier
-	created_at(DT): instance creation date time
-	updated_at(DT): instance change date time
-	'''
-        id = str(uuid.uuid4())
-        created_at = datetime.isoformat(datetime.today())
-	updated_at = datetime.isoformat(datetime.today())
+        id(str): uniqued identifier
+        created_at(DT): instance creation date time
+        updated_at(DT): instance change date time
+        '''
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.isoformat(datetime.today())
+        self.updated_at = datetime.isoformat(datetime.today())
 
     def __str__(self):
- 	''' Print informal representation of an instance
+        ''' Print informal representation of an instance
         Print:
-        [<class_name>], (self.id), <self.__dict__>
-	'''
+            [<class_name>], (self.id), <self.__dict__>
+        '''
 
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                      self.__dict__)
 
     def save(self):
-	''' update attribute updated at with current DT
-	'''
-	self.updated_at = datetime.isoformat(datetime.today())
+        ''' update attribute updated at with current DT
+        '''
+        self.updated_at = datetime.isoformat(datetime.today())
 
     def to_dict(self):
         """A dictionary containing all keys/values of __dict__
@@ -48,3 +48,8 @@ class BaseModel():
         the_dict["updated_at"] = self.updated_at
         the_dict["__class__"] = self.__class__.__name__
         return the_dict
+
+
+if __name__ =='__main__':
+	new = BaseModel()
+	print(new.to_dict())
