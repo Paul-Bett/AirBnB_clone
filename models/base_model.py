@@ -11,16 +11,21 @@ class BaseModel():
     Base Model Class
     '''
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         ''' Initialization of BaseModel
         public instance attributes: 
         id(str): uniqued identifier
         created_at(DT): instance creation date time
         updated_at(DT): instance change date time
         '''
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.isoformat(datetime.today())
-        self.updated_at = datetime.isoformat(datetime.today())
+        if kwags:
+            for key, value in kwags.items():
+                if key != '__class__':
+                     self.key = value
+	else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.isoformat(datetime.today())
+            self.updated_at = datetime.isoformat(datetime.today())
 
     def __str__(self):
         ''' Print informal representation of an instance
