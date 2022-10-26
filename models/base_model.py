@@ -22,8 +22,8 @@ class BaseModel():
         if kwags:
             for key, value in kwags.items():
                 if key != '__class__':
-                     self.key = value
-	else:
+                    self.key = value
+        else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.isoformat(datetime.today())
             self.updated_at = datetime.isoformat(datetime.today())
