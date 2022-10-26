@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import uuid
-from datetime import datetime 
+from datetime import datetime
 
 '''
 Module: base_model
@@ -14,7 +14,7 @@ class BaseModel():
 
     def __init__(self):
         ''' Initialization of BaseModel
-        public instance attributes: 
+        public instance attributes:
         id(str): uniqued identifier
         created_at(DT): instance creation date time
         updated_at(DT): instance change date time
@@ -50,6 +50,6 @@ class BaseModel():
         return the_dict
 
 
-if __name__ =='__main__':
-	new = BaseModel()
-	print(new.to_dict())
+if __name__ == '__main__':
+    new = BaseModel()
+    print(new.to_dict())
