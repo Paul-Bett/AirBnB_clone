@@ -2,12 +2,21 @@
 import json
 import models
 
-''' Class FileStorage
+'''Module: file_storage
+    Class: FileStorage
 '''
 
 
 class FileStorage():
     ''' Serialize and deserialize instance to and from JSON file
+        Private Class Attributes:
+            __file_path(str): path to JSON file
+            __objects(dict): storage of object
+        Public instance methods:
+            all(self): returns __objects
+            new(self, obj):
+            save(self):
+            reload(self):
     '''
 
     __file_path = my_file.json
@@ -20,6 +29,8 @@ class FileStorage():
 
     def new(self,obj):
         '''  sets in __objects the obj with key <obj class name>.id
+            Args:
+                obj(dict): the object
         '''
         self.__objects[(obj.__class__.__name__) + "." + (obj.id)] = obj
 
