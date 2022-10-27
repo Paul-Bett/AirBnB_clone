@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import models
+import os
 
 '''Module: file_storage
     Class: FileStorage
@@ -47,6 +48,3 @@ class FileStorage():
         if os.path.isfile(__file_path) and os.access(__file_path, os.R_OK):
             with open(FileStorage.__file_path, encoding="UTF8") as jsonfile:
                 self.__objects = json.load(jsonfile)
-
-
-
