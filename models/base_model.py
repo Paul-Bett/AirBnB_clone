@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import uuid
 from datetime import datetime
+import models
+
 
 '''
 Module: base_model
@@ -21,8 +23,6 @@ class BaseModel():
         '''
         if kwargs:
             for key, value in kwargs.items():
-                if key != '__class__':
-                    self.key = value
                 if key in ['created_at', 'updated_at']:
                     self.__dict__[key] = datetime.isoformat(datetime.today())
                 elif key == 'id':
@@ -31,11 +31,12 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.created_at = datetime.isoformat(datetime.today())
             self.updated_at = datetime.isoformat(datetime.today())
+            models.storage.new()
 
     def __str__(self):
         ''' Print informal representation of an instance
         Print:
-            [<class_name>], (self.id), <self.__dict__>
+            [<class_name>], (self.id), <self.i__dict__>
         '''
 
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
@@ -45,6 +46,8 @@ class BaseModel():
         ''' update attribute updated at with current DT
         '''
         self.updated_at = datetime.isoformat(datetime.today())
+        # save storage
+        models.storage.save()
 
     def to_dict(self):
         """A dictionary containing all keys/values of __dict__
