@@ -36,4 +36,31 @@ class base_model_TestCase(unittest.TestCase):
             Checks that the type of the id is string.
         '''
         self.assertEqual("<class 'str'>", str(type(self.my_instance.id)))
-    
+   
+    def test_save(self):
+        '''
+            Checks that after updating the instance; the dates differ in the
+            updated_at attribute.
+        '''
+        old_update = self.my_model.updated_at
+        self.my_model.save()
+        self.assertNotEqual(self.my_model.updated_at, old_update)
+
+    def test_type_created_at(self):
+        '''
+            Test that the new_model's updated_at
+            data type is datetime.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(my_model_dict)
+        self.assertTrue(isinstance(new_model.created_at, datetime.datetime))
+ 
+    def test_type_updated_at(self):
+        '''
+            Test that the new_model's created_at
+            data type is datetime.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(my_model_dict)
+        self.assertTrue(isinstance(new_model.updated_at, datetime.datetime))
+
