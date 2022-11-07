@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+''' Console for AirBnB Clone Project
+'''
+
 
 import cmd
 import json
@@ -11,9 +14,6 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-
-''' Console for AirBnB Clone Project
-'''
 
 
 class HBNBCommand(cmd.Cmd):
