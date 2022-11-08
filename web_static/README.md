@@ -1,6 +1,6 @@
-#0x01. AirBnB clone - Web static
+## 0x01. AirBnB clone - Web static
 
-##Resources:
+### Resources:
 [HTML/CSS](https://alx-intranet.hbtn.io/concepts/2)
 [The trinity of front-end quality](https://alx-intranet.hbtn.io/concepts/4)
 [Learn to Code HTML & CSS (until “Creating Lists” included)](https://learn.shayhowe.com/html-css/)
